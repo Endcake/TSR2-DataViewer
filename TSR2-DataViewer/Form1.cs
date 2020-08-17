@@ -339,16 +339,34 @@ namespace TSR2_DataViewer
                 for (int n = 0; n < pulsesTotal; n++)
                 {
                     
-                    file.Write(n.ToString() );
-                    //file.WriteLine("Transient(%d)\t",n);
+                    file.Write(n.ToString()+"\t");
+                  //  file.Write("\t");
+                  //  file.WriteLine("Transient(%d)\t",n);
                 }
+
+                file.WriteLine("\n"+"Transient");
+
+
                 for (int i =0;i<4000;i++) 
                 {
-                    //file.WriteLine(transient[10, i].ToString());
+                    for(int n=0;n<pulsesTotal;n++)
+                    {
+                        file.Write(transient[n,i].ToString() + "\t");
+                    }
+                    file.Write("\n");
+             
                 }
-                
-                
-                
+                file.WriteLine("\n" + "Pulse");
+                for (int i = 0; i < 200; i++)
+                {
+                    for (int n = 0; n < pulsesTotal; n++)
+                    {
+                        file.Write(pulse[n, i].ToString() + "\t");
+                    }
+                    file.Write("\n");
+
+                }
+
 
 
             }
